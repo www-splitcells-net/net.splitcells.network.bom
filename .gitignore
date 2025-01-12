@@ -13,3 +13,5 @@ target/
 
 .vagrant/
 .flattened-pom.xm
+
+pom.xml.versionsBackup
