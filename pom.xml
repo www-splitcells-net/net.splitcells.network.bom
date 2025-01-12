@@ -1,261 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>net.splitcells</groupId>
     <artifactId>network.bom</artifactId>
-    <description>Please document for every dependency, why it was chosen or what it is used for.</description>
+    <description>
+        This is the Network BOM log project, that updates the versions of the Network BOM Base.
+        Thereby, the base BOM can focus on adding, removing and documenting dependencies,
+        whereas the log project focuses on the updates.
+        This avoids adding noise to the git history of the base BOM,
+        while reducing hesitation to update dependency versions frequently and quickly.
+    </description>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <properties>
-        <encoding.default>UTF-8</encoding.default>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <antlr.version>4.11.1</antlr.version>
-        <vertx.version>4.4.0</vertx.version>
-        <!-- The Java version is set here,
-        so the chosen version and therefore all dependency can be documented at one place,
-        which avoids consistency problems.
-
-        Do not chose Java versions, that are not available in Debian stable,
-        as it can get otherwise relatively hard to install the required Java version across computers and servers.
-        -->
-        <maven.compiler.target>21</maven.compiler.target>
-        <maven.compiler.source>21</maven.compiler.source>
-        <!-- eclipse.adoptium settings were found via https://api.adoptium.net/q/swagger-ui/ -->
-        <!-- Query for finding Linux version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=x64&heap_size=normal&image_type=jre&lts=true&os=linux&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DATE&sort_order=DESC&vendor=eclipse -->
-        <eclipse.adoptium.jre.linux.version.name>jdk-21.0.2+13-jre</eclipse.adoptium.jre.linux.version.name>
-        <eclipse.adoptium.jre.linux.version.url>https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jre_x64_linux_hotspot_21.0.2_13.tar.gz</eclipse.adoptium.jre.linux.version.url>
-        <eclipse.adoptium.jre.linux.version.checksum>51141204fe01a9f9dd74eab621d5eca7511eac67315c9975dbde5f2625bdca55</eclipse.adoptium.jre.linux.version.checksum>
-        <!-- Query for finding Windows version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=x64&heap_size=normal&image_type=jre&os=windows&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DEFAULT&sort_order=DESC&vendor=eclipse -->
-        <eclipse.adoptium.jre.windows.version.name>jdk-21.0.2+13-jre</eclipse.adoptium.jre.windows.version.name>
-        <eclipse.adoptium.jre.windows.version.url>https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jre_x64_windows_hotspot_21.0.2_13.zip</eclipse.adoptium.jre.windows.version.url>
-        <eclipse.adoptium.jre.windows.version.checksum>a29b88541bc11276de4c4cbdfac60e374ef8a34a415f61cb02a2b6a46f0e1064</eclipse.adoptium.jre.windows.version.checksum>
-        <!-- Query for finding MacOS version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=aarch64&heap_size=normal&image_type=jdk&os=mac&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DEFAULT&sort_order=DESC&vendor=eclipse -->
-        <eclipse.adoptium.jre.macos.version.name>jdk-21.0.2+13-jre</eclipse.adoptium.jre.macos.version.name>
-        <eclipse.adoptium.jre.macos.version.url>https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.2_13.tar.gz</eclipse.adoptium.jre.macos.version.url>
-        <eclipse.adoptium.jre.macos.version.checksum>c5704de3e0b6fb977db97b9b50d68dd65630e330375fd721ce9621dc407a4fb2</eclipse.adoptium.jre.macos.version.checksum>
-        <jquery.version>3.7.1</jquery.version>
-    </properties>
-    <profiles>
-        <profile>
-            <id>are-dependencies-up-to-date</id>
-            <activation>
-                <property>
-                    <name>are-dependencies-up-to-date</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <version>3.5.0</version>
-                        <executions>
-                            <execution>
-                                <id>enforce-versions</id>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <rules>
-                                        <maxDependencyUpdates>
-                                            <maxUpdates>0</maxUpdates>
-                                        </maxDependencyUpdates>
-                                    </rules>
-                                </configuration>
-                            </execution>
-                        </executions>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.codehaus.mojo.versions</groupId>
-                                <artifactId>versions-enforcer</artifactId>
-                                <version>2.18.0</version>
-                            </dependency>
-                        </dependencies>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
+    <parent>
+        <groupId>net.splitcells</groupId>
+        <artifactId>network.bom.base</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../net.splitcells.network.bom.base</relativePath>
+    </parent>
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- This is used in order to define and parse grammars. -->
-                <groupId>org.antlr</groupId>
-                <artifactId>antlr4-runtime</artifactId>
-                <version>${antlr.version}</version>
-            </dependency>
-            <dependency>
-                <!-- This is used in order to define and parse grammars. -->
-                <groupId>org.antlr</groupId>
-                <artifactId>antlr4</artifactId>
-                <version>${antlr.version}</version>
-            </dependency>
-            <dependency>
-                <!-- This is used for rendering of CommonMark documents to HTML. -->
-                <groupId>org.commonmark</groupId>
-                <artifactId>commonmark</artifactId>
-                <version>0.21.0</version>
-            </dependency>
-            <dependency>
-                <!-- This is used in order to render CSV files. -->
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-csv</artifactId>
-                <version>1.7</version>
-            </dependency>
-            <dependency>
-                <!-- This is not actively used yet, but could be used in order to create OpenOffice sheets. -->
-                <groupId>org.apache.poi</groupId>
-                <artifactId>poi-ooxml</artifactId>
-                <version>4.1.0</version>
-            </dependency>
-            <dependency>
-                <!-- This is used as a basic webserver with easy authentication options via private/public keys. -->
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-core</artifactId>
-                <version>${vertx.version}</version>
-            </dependency>
-            <dependency>
-                <!-- This is used as a basic webserver with easy authentication options via private/public keys. -->
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-web</artifactId>
-                <version>${vertx.version}</version>
-            </dependency>
-            <dependency>
-                <!-- This is used for basic authentication for the webserver. -->
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-auth-common</artifactId>
-                <version>${vertx.version}</version>
-            </dependency>
-            <dependency>
-                <!-- This is used in order to ease some operations of folders inside the file system. -->
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.11.0</version>
-            </dependency>
-            <dependency>
-                <!-- This is used for Java Source Code analysis and transformations. -->
-                <!-- Homepage: http://javaparser.org/ -->
-                <!-- Javadoc: http://static.javadoc.io/com.github.javaparser/javaparser-core/3.5.17/allclasses-noframe.html -->
-                <groupId>com.github.javaparser</groupId>
-                <artifactId>javaparser-symbol-solver-core</artifactId>
-                <version>3.22.0</version>
-            </dependency>
-            <dependency>
-                <!-- This is used for improving Swing's look and feel. -->
-                <groupId>com.formdev</groupId>
-                <artifactId>flatlaf</artifactId>
-                <version>3.2.1</version>
-            </dependency>
-            <dependency>
-                <!-- Used for Git operations. -->
-                <groupId>org.eclipse.jgit</groupId>
-                <artifactId>org.eclipse.jgit</artifactId>
-                <version>6.7.0.202309050840-r</version>
-            </dependency>
-            <dependency>
-                <!-- This is used for the org.springframework.core.io.support.PathMatchingResourcePatternResolver.
-                It provides a good implementation in order to list all paths of a class loader's resources.
-                 -->
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>5.3.30</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven</groupId>
-                <artifactId>maven-plugin-api</artifactId>
-                <version>2.0.4</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven</groupId>
-                <artifactId>maven-project</artifactId>
-                <version>2.0.4</version>
-            </dependency>
-            <dependency>
-                <groupId>org.shredzone.acme4j</groupId>
-                <artifactId>acme4j-client</artifactId>
-                <version>3.2.1</version>
-            </dependency>
-            <dependency>
-                <!-- This is used as a backend implementation for `net.splitcells.dem.resource.communication.log.Logs`. -->
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>1.3.5</version>
-            </dependency>
-            <dependency>
-                <!-- This is needed in order to have a implementation of Logback, that can be used.  -->
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>1.3.5</version>
-            </dependency>
-            <dependency>
-                <!-- This is used in order to make code more independent of the used logging implementation. -->
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>2.0.4</version>
-            </dependency>
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>2.2.224</version>
-            </dependency>
-            <dependency>
-                <!-- Used for in-memory file system. -->
-                <groupId>com.google.jimfs</groupId>
-                <artifactId>jimfs</artifactId>
-                <version>1.3.0</version>
-            </dependency>
-            <dependency>
-                <!-- Used for testing the web server like a user.
-                Playwright is used instead of Selenium,
-                because Playwright automatically downloads the correct browser engine during testing.
-                On the other hand, Selenium seems to require one to use the hosts browser engine,
-                which creates an unnecessary burden.
-                -->
-                <groupId>com.microsoft.playwright</groupId>
-                <artifactId>playwright</artifactId>
-                <version>1.45.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>jquery</artifactId>
-                <version>${jquery.version}</version>
-            </dependency>
-
-            <dependency>
-                <!-- Writing assertions. -->
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>3.13.2</version>
-            </dependency>
-            <dependency>
-                <!-- TODO Is this still required? Mocking is deprecated for now. -->
-                <!-- Mockito and PowerMock versions need to be aligned: https://github.com/powermock/powermock/wiki/Mockito#supported-versions -->
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>3.2.4</version>
-            </dependency>
-            <dependency>
-                <!-- Following classes are used: -->
-                <!-- org.apache.commons.lang3.tuple.* -->
-                <!-- Javadoc: http://commons.apache.org/proper/commons-lang/javadocs/api-3.4/allclasses-noframe.html -->
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>3.8.1</version>
-            </dependency>
-            <dependency>
-                <!-- Library for Functional Programming -->
-                <!-- http://www.vavr.io/vavr-docs/ -->
-                <!-- Javadoc: https://www.javadoc.io/static/io.vavr/vavr/0.10.3/allclasses-noframe.html -->
-                <!-- vavr-test is not used, because JUnit 5 also supports property based testing. -->
-                <groupId>io.vavr</groupId>
-                <artifactId>vavr</artifactId>
-                <version>0.10.3</version>
-            </dependency>
-            <dependency>
-                <!-- XSL Processor -->
-                <groupId>net.sf.saxon</groupId>
-                <artifactId>Saxon-HE</artifactId>
-                <version>12.5</version>
+                <groupId>net.splitcells</groupId>
+                <artifactId>network.bom.base</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
