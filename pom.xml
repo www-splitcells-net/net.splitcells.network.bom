@@ -168,7 +168,7 @@
                 <groupId>com.microsoft.playwright</groupId>
                 <artifactId>playwright</artifactId>
                 <!-- This version needs to be in sync with `worker.execute`. -->
-                <version>1.46.0</version>
+                <version>1.45.0</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars</groupId>
