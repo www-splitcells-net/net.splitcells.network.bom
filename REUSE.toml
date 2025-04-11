@@ -1,5 +1,5 @@
 version = 1
-SPDX-PackageName = "net.splitcells.network"
+SPDX-PackageName = "net.splitcells.network.bom"
 SPDX-PackageSupplier = "Mārtiņš Avots <martins.avots@splitcells.net>"
 SPDX-PackageDownloadLocation = "https://splitcells.net"
 
