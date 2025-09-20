@@ -174,7 +174,7 @@
             <dependency>
                 <groupId>com.microsoft.playwright</groupId>
                 <artifactId>playwright</artifactId>
-                <version>1.45.0</version>
+                <version>1.55.0</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars</groupId>
@@ -233,14 +233,6 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>2.18.0</version>
-                <configuration>
-                    <excludes>
-                        <!-- TODO Playwright is not updated,
-                        as long as the network worker is not able to synchronize its Playwright version
-                        with the version in this BOM.-->
-                        <execlude>com.microsoft.playwright:playwright</execlude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
