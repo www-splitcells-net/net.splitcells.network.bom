@@ -56,18 +56,19 @@
         <jquery.version>3.7.1</jquery.version>
         <!-- ${lombok.version} is provided, so that plugins can reference the Lombok artifact. -->
         <lombok.version>1.18.36</lombok.version>
+        <org.openjdk.jmh>1.37</org.openjdk.jmh>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.openjdk.jmh</groupId>
                 <artifactId>jmh-core</artifactId>
-                <version>1.37</version>
+                <version>${org.openjdk.jmh}</version>
             </dependency>
             <dependency>
                 <groupId>org.openjdk.jmh</groupId>
                 <artifactId>jmh-generator-annprocess</artifactId>
-                <version>1.37</version>
+                <version>${org.openjdk.jmh}</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.collections</groupId>
