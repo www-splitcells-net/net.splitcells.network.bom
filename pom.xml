@@ -55,7 +55,7 @@
         </eclipse.adoptium.jre.macos.version.checksum>
         <jquery.version>3.7.1</jquery.version>
         <!-- ${lombok.version} is provided, so that plugins can reference the Lombok artifact. -->
-        <lombok.version>1.18.36</lombok.version>
+        <lombok.version>1.18.44</lombok.version>
         <org.openjdk.jmh>1.37</org.openjdk.jmh>
     </properties>
     <dependencyManagement>
