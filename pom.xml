@@ -272,6 +272,11 @@
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>5.2.0.4988</version>
                 </plugin>
+                <plugin>
+                    <groupId>fr.jcgay.maven</groupId>
+                    <artifactId>maven-profiler</artifactId>
+                    <version>3.2</version>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
