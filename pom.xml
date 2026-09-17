@@ -63,22 +63,22 @@
             <dependency>
                 <groupId>org.junit.platform</groupId>
                 <artifactId>junit-platform-launcher</artifactId>
-                <version>1.6.2</version>
+                <version>1.6.3</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.6.0-RC1</version>
+                <version>5.6.0</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter-api</artifactId>
-                <version>5.6.0-RC1</version>
+                <version>5.6.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.java-diff-utils</groupId>
                 <artifactId>java-diff-utils</artifactId>
-                <version>4.16</version>
+                <version>4.17</version>
             </dependency>
             <dependency>
                 <groupId>org.openjdk.jmh</groupId>
@@ -135,7 +135,7 @@
             <dependency>
                 <groupId>org.commonmark</groupId>
                 <artifactId>commonmark</artifactId>
-                <version>0.29.0</version>
+                <version>0.30.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -175,7 +175,7 @@
             <dependency>
                 <groupId>org.eclipse.jgit</groupId>
                 <artifactId>org.eclipse.jgit</artifactId>
-                <version>7.7.0.202606012155-r</version>
+                <version>7.7.1.202607240634-r</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven</groupId>
@@ -195,12 +195,12 @@
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.5.34</version>
+                <version>1.5.35</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.5.34</version>
+                <version>1.5.35</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -220,7 +220,7 @@
             <dependency>
                 <groupId>com.microsoft.playwright</groupId>
                 <artifactId>playwright</artifactId>
-                <version>1.60.0</version>
+                <version>1.61.0</version>
             </dependency>
             <dependency>
                 <groupId>org.webjars</groupId>
@@ -250,17 +250,17 @@
             <dependency>
                 <groupId>net.sf.saxon</groupId>
                 <artifactId>Saxon-HE</artifactId>
-                <version>12.10</version>
+                <version>13.0</version>
             </dependency>
             <dependency>
                 <groupId>org.tomlj</groupId>
                 <artifactId>tomlj</artifactId>
-                <version>1.1.1</version>
+                <version>1.2.0</version>
             </dependency>
             <dependency>
                 <groupId>io.pyroscope</groupId>
                 <artifactId>agent</artifactId>
-                <version>2.5.0</version>
+                <version>2.5.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
