@@ -23,7 +23,6 @@
     </parent>
     <properties>
         <antlr.version>4.11.1</antlr.version>
-        <vertx.version>4.4.0</vertx.version>
         <encoding.default>UTF-8</encoding.default>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <antlr.version>4.13.2</antlr.version>
