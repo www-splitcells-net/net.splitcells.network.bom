@@ -273,6 +273,11 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>eu.maveniverse.maven.plugins</groupId>
+                    <artifactId>toolbox</artifactId>
+                    <version>0.16.0</version>
+                </plugin>
+                <plugin>
                     <groupId>org.antlr</groupId>
                     <artifactId>antlr4-maven-plugin</artifactId>
                     <version>${antlr.version}</version>
