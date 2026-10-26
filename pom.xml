@@ -30,7 +30,7 @@
         <maven.compiler.source>21</maven.compiler.source>
         <!-- eclipse.adoptium settings were found via https://api.adoptium.net/q/swagger-ui/ -->
         <!-- Query for finding Linux version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=x64&heap_size=normal&image_type=jre&lts=true&os=linux&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DATE&sort_order=DESC&vendor=eclipse -->
-        <eclipse.adoptium.jre.linux.version.name>jdk-26.0.2.1+1</eclipse.adoptium.jre.linux.version.name>
+        <eclipse.adoptium.jre.linux.version.name>jdk-26.0.2.1+1-jre</eclipse.adoptium.jre.linux.version.name>
         <eclipse.adoptium.jre.linux.version.url>
             https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jre_x64_linux_hotspot_26.0.2.1_1.tar.gz
         </eclipse.adoptium.jre.linux.version.url>
