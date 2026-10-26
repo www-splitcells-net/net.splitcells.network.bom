@@ -30,11 +30,11 @@
         <maven.compiler.source>21</maven.compiler.source>
         <!-- eclipse.adoptium settings were found via https://api.adoptium.net/q/swagger-ui/ -->
         <!-- Query for finding Linux version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=x64&heap_size=normal&image_type=jre&lts=true&os=linux&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DATE&sort_order=DESC&vendor=eclipse -->
-        <eclipse.adoptium.jre.linux.version.name>jdk-21.0.2+13-jre</eclipse.adoptium.jre.linux.version.name>
+        <eclipse.adoptium.jre.linux.version.name>jdk-26.0.2.1+1</eclipse.adoptium.jre.linux.version.name>
         <eclipse.adoptium.jre.linux.version.url>
-            https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jre_x64_linux_hotspot_21.0.2_13.tar.gz
+            https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jre_x64_linux_hotspot_26.0.2.1_1.tar.gz
         </eclipse.adoptium.jre.linux.version.url>
-        <eclipse.adoptium.jre.linux.version.checksum>51141204fe01a9f9dd74eab621d5eca7511eac67315c9975dbde5f2625bdca55
+        <eclipse.adoptium.jre.linux.version.checksum>35773116829554fb38e6acf9b92b3ba8bb7856557c3ab885e26e7d61e8c8e1b0
         </eclipse.adoptium.jre.linux.version.checksum>
         <!-- Query for finding Windows version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=x64&heap_size=normal&image_type=jre&os=windows&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DEFAULT&sort_order=DESC&vendor=eclipse -->
         <eclipse.adoptium.jre.windows.version.name>jdk-21.0.2+13-jre</eclipse.adoptium.jre.windows.version.name>
@@ -45,11 +45,11 @@
             a29b88541bc11276de4c4cbdfac60e374ef8a34a415f61cb02a2b6a46f0e1064
         </eclipse.adoptium.jre.windows.version.checksum>
         <!-- Query for finding MacOS version: https://api.adoptium.net/v3/assets/version/%5B21%2C22%5D?architecture=aarch64&heap_size=normal&image_type=jdk&os=mac&page=0&page_size=10&project=jdk&release_type=ga&semver=false&sort_method=DEFAULT&sort_order=DESC&vendor=eclipse -->
-        <eclipse.adoptium.jre.macos.version.name>jdk-21.0.2+13-jre</eclipse.adoptium.jre.macos.version.name>
+        <eclipse.adoptium.jre.macos.version.name>jdk-26.0.2.1+1-jre</eclipse.adoptium.jre.macos.version.name>
         <eclipse.adoptium.jre.macos.version.url>
-            https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.2%2B13/OpenJDK21U-jre_aarch64_mac_hotspot_21.0.2_13.tar.gz
+            https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jre_aarch64_mac_hotspot_26.0.2.1_1.tar.gz
         </eclipse.adoptium.jre.macos.version.url>
-        <eclipse.adoptium.jre.macos.version.checksum>c5704de3e0b6fb977db97b9b50d68dd65630e330375fd721ce9621dc407a4fb2
+        <eclipse.adoptium.jre.macos.version.checksum>63a94b3ba05308063536d60cb0f9bc847900a300fc53630c86eea3efa79313a4
         </eclipse.adoptium.jre.macos.version.checksum>
         <jquery.version>4.0.0</jquery.version>
         <!-- ${lombok.version} is provided, so that plugins can reference the Lombok artifact. -->
