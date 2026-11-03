@@ -25,7 +25,7 @@
         <encoding.default>UTF-8</encoding.default>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <antlr.version>4.13.2</antlr.version>
-        <vertx.version>5.2.2</vertx.version>
+        <vertx.version>5.2.3</vertx.version>
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.source>21</maven.compiler.source>
         <!-- eclipse.adoptium settings were found via https://api.adoptium.net/q/swagger-ui/ -->
@@ -140,7 +140,7 @@
             <dependency>
                 <groupId>org.commonmark</groupId>
                 <artifactId>commonmark</artifactId>
-                <version>0.31.0</version>
+                <version>0.32.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
